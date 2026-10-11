@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* Only the project palette: the default Tailwind colors are cleared on purpose. */
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #fafbfd;
+  --color-line: #e6eaf2;
+  --color-line-2: #eef1f6;
+  --color-ink: #0e1b3d;
+  --color-ink-2: #36425f;
+  --color-muted: #68728c;
+  --color-faint: #97a0b5;
+  --color-navy: #173a8c;
+  --color-blue: #1a5cf4;
+  --color-blue-600: #134fdc;
+  --color-blue-50: #eef3ff;
+  --color-blue-100: #dbe5ff;
+  --color-green: #10915e;
+  --color-green-600: #0c7f52;
+  --color-green-50: #e6f6ee;
+  --color-teal: #14b8a6;
+  --color-red: #ef4444;
+  --color-red-50: #fff1f1;
+  --color-amber: #f08c00;
+  --color-amber-50: #fff4e3;
+  --color-purple: #8b5cf6;
+  --color-purple-50: #f2edff;
+  --color-gray-50: #f1f3f7;
+  /* Toasts and the demo badge */
+  --color-toast: #0f1c3f;
+
+  /* The prototype's three breakpoints: phone, drawer sidebar, single-column grids. */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
+
+  --radius-card: 14px;
+  --shadow-card: 0 1px 2px rgba(15, 32, 80, 0.04), 0 3px 10px rgba(15, 32, 80, 0.035);
+  --shadow-pop: 0 18px 50px rgba(15, 32, 80, 0.18);
+
+  --animate-blink: blink 1.2s infinite;
+  --animate-ring: ring 2s infinite;
+  --animate-fadein: fadein 0.35s ease;
+  --animate-pop: pop 0.14s ease;
+  --animate-fade: fade 0.15s ease;
+  --animate-flash: flash 1.6s ease;
+  --animate-spin: spin 0.8s linear infinite;
+  --animate-eq: eq 1s infinite ease-in-out;
+  --animate-wave: wave 2.4s ease 1;
+
+  @keyframes blink {
+    50% {
+      opacity: 0.25;
+    }
+  }
+  @keyframes ring {
+    from {
+      transform: scale(0.75);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.08);
+      opacity: 0;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes flash {
+    0% {
+      background: #e9f0ff;
+    }
+    100% {
+      background: transparent;
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes wave {
+    10%,
+    30% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes eq {
+    0%,
+    100% {
+      height: 4px;
+    }
+    50% {
+      height: 12px;
+    }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  input,
+  select,
+  textarea {
+    color: var(--color-ink);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+}
